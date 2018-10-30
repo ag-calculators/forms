@@ -1,0 +1,49 @@
+st-drilldown {
+    --st-form-button-padding-y: 4px;
+    --st-form-button-padding-x: 10px;
+    --st-form-button-color: #999999;
+    --st-form-button-background-color: #dcdcdc;
+    --st-form-button-hover-background: #dcdcdc;
+    --st-form-button-active-background: #c2c2c2;
+
+    .st-drilldown {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        border: var(--st-drilldown-border, 2px solid #dcdcdc);
+        border-bottom: none;
+        padding: var(--st-drilldown-padding, 10px 10px);
+        border-radius: var(--st-drilldown-border-radius, 4px 4px 0 0);
+        margin: var(--st-drilldown-margin, 6px 0 0);
+
+        &.st-errors {
+            border-color: var(--st-drilldown-error-border-color, #bf0e08);    
+        }
+
+        button {
+            flex: var (--st-drilldown-button, flex, 0 0 33.3333%);
+            text-align: center;
+
+            &.st-active, &.st-active:hover {
+                color: var(--st-drilldown-selected-color, #fff);
+                background-color: var(--st-drilldown-selected-background-color, #3277b3);
+            }
+        }
+
+        
+    }
+    .st-drilldown-path {
+        background-color: var(--st-drilldown-path-background-color, #fff);
+        color: var(--st-drilldown-path-color, #999999);
+        padding: var(--st-drilldown-path-padding, 2px 4px);
+        border: var(--st-drilldown-path-border, 2px solid #dcdcdc);
+        border-radius: var(--st-drilldown-path-border-radius, 0 0 4px 4px);
+
+        &.st-errors {
+            border-color: var(--st-drilldown-error-border-color, #bf0e08);  
+            border-top-color: var(--st-drilldown-border-color, #dcdcdc);
+        }
+    }
+    
+}

@@ -1,0 +1,60 @@
+st-step-progress {
+    .st-step-progress {
+        box-sizing: border-box;
+        width: 100%;
+        height: 14px;
+        display: flex;
+        margin: 0;
+        align-items: center;
+        padding: 20px 50px 0 50px;
+
+        & .st-step-progress-dot {
+            background-color: var(--st-step-progress-dot-color, #aaa);
+            max-width: 14px;
+            height: 14px;
+            flex-grow: 1;
+            border-radius: 50%;
+            border: 3px solid var(--st-step-progress-dot-border-color, #fff);
+        }
+
+        & .st-step-progress-bar {
+            background-color: var(--st-step-progress-bar-color, #ddd);
+            flex-grow: 1;
+            height: 2px;
+        }
+
+        .st-active {
+            background-color: var(--st-step-progress-active-background, #5995da);;
+        }
+    }//.progress-bar
+
+    /* Note */
+    .st-step-progress-arrow-box {
+        display: inline-block;
+        padding: var(--st-step-progress-padding, 4px 8px);
+        line-height: var(--st-step-progress-label-height, 30px);
+        margin: var(--st-step-progress-margin, 30px auto);
+        text-align: center;
+        font-family: sans-serif;
+        color: var(--st-step-progress-label-color, #fff);
+        font-size: 14px;
+        -webkit-font-smoothing:antialiased;
+        position: relative;
+        background: var(--st-step-progress-label-background, #5995da);
+        border-radius: 3px;
+    }
+    .st-step-progress-arrow-box:after {
+        bottom: 100%;
+        left: 50%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
+        border-color: rgba(255, 255, 255, 0);
+        border-bottom-color: var(--st-step-progress-label-background, #5995da);;
+        border-width: 5px;
+        margin-left: -5px;
+    }
+}

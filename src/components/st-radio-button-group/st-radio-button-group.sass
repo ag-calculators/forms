@@ -1,0 +1,41 @@
+st-radio-button-group {
+    
+    st-form-field-label {
+        display: block;
+        margin-bottom: 6px;
+    }
+
+        .st-form-field {
+            margin-bottom: 10px;
+            }
+        
+    .st-radio-button-group {
+        clear: both;
+        
+
+        &:after {
+            content: ' ';
+            clear: both;
+            display: block;   
+        }     
+
+        &.st-group-layout-stacked, &.st-group-layout-grid {
+
+            display: block;
+            width: 100%;
+
+            st-radio-button {
+                display: block;
+                width: 100%;
+                
+                label {
+                    display: block;
+                    width: 100%;
+                    text-align: center;
+                }
+            }    
+        }
+    }
+
+    
+}

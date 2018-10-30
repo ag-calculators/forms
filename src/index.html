@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+  <title>Stencil Component Starter</title>
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <script src="/build/stellar-forms.js"></script>
+  <style>
+    :root {
+      --st-step-progress-label-background: #ddd;
+      --st-step-progress-label-color: #425a70;
+    }
+  </style>
+  <script>
+    function renderTestRoute(params) {
+      console.log('render test route', params);
+      return `Params: ${message}`;
+    }
+  </script>
+</head>
+<body>
+    <st-form-header title="Popularity Calculator">
+        <st-step-progress id="formSteps" steps="4" current-step="2" label="Introduce yourself"></st-step-progress>
+    </st-form-header>    
+    <st-form novalidate="true">
+      <st-drilldown label="Species" name="species" required="true">
+        <st-drilldown-item text="Cattle" path="Cattle">
+          <st-drilldown-item text="Steers" path="Cattle/Steers">
+            <st-drilldown-item text="Yearlings" path="Cattle/Steers/Yearlings"></st-drilldown-item>
+          </st-drilldown-item>
+          <st-drilldown-item text="Heifers" path="Cattle/Heifers"></st-drilldown-item>
+        </st-drilldown-item>
+        <st-drilldown-item text="Hogs" path="Hogs">
+          <st-drilldown-item text="Barrows" path="Hogs/Barrows"></st-drilldown-item>
+          <st-drilldown-item text="Gilts" path="Hogs/Gilts"></st-drilldown-item>
+        </st-drilldown-item>
+        <st-drilldown-item text="Sheep" path="Sheep"></st-drilldown-item>
+      </st-drilldown>
+      <st-number-picker label="Weight*" required="true" defaultValue="500" hint="* weights are in US pounds" name="weight" numbers="[250, 500, 750, 1000]" step="50"></st-number-picker>
+      <st-icon-arrow-box icon-size="60px" icon-font-size="3em"  icon="!" direction="left">
+        Your weight may fluctuate over a period of 24 hours and is advisable the you check it periodically to ensure
+        accurate results!
+      </st-icon-arrow-box>
+      <st-text-input label="First name" name="firstName" description="All popular people have cool first names" hint="Try something unique!" required></st-text-input>
+      <st-number-input label="Age" name="age"  required></st-number-input>
+      <st-radio-button-group label="Gender">
+        <st-radio-button name="gender" id="male" value="male" label="Male"></st-radio-button>
+        <st-radio-button name="gender" id="female" value="female" label="Female"></st-radio-button>
+      </st-radio-button-group>
+      <st-range-input name="amount" label="Spending Limit (optional)" id="amount" value="10" min="1" max="100"></st-range-input>
+      <st-form-actions>
+        <st-form-action icon-text="x " action="reset" icon-position="left" action-text="Reset"></st-form-action>
+        <st-form-action action-text="" disabled="true" flex="true"></st-form-action>
+        <st-form-action icon-text=" →" action-detail='{"href": "/step/2", "data": { "test": "1" }}' action="submit" action-text="Submit"></st-form-action>
+      </st-form-actions>
+    </st-form>
+    <st-form-router default-route="/">
+      <st-form-route route="/" component="st-form-page"></st-form-route>
+      <st-form-route route="/test" component="st-form-page-2" params='{"label": "Test"}'></st-form-route>
+    </st-form-router>
+    
+</body>
+</html>

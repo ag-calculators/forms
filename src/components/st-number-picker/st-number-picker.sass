@@ -1,0 +1,39 @@
+st-number-picker {
+    /* Component styles go here */
+
+    --st-form-button-padding-y: 4px;
+    --st-form-button-padding-x: 10px;
+    --st-form-button-color: #999999;
+    --st-form-button-background-color: #dcdcdc;
+    --st-form-button-hover-background: #dcdcdc;
+    --st-form-button-active-background: #c2c2c2;
+
+    .st-number-picker {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+
+        border: var(--st-number-picker-border, 2px solid #dcdcdc);
+        padding: var(--st-number-picker-padding, 10px 10px);
+        border-radius: var(--st-number-picker-border-radius, 4px);
+
+        &.st-errors {
+            border-color: var(--st-number-picker-error-border-color, #bf0e08);
+        }
+
+        button {
+            flex: var (--st-number-picker-button, flex, 0 0 33.3333%);
+            text-align: center;
+
+            &.st-active, &.st-active:hover {
+                color: var(--st-number-picker-selected-color, #fff);
+                background-color: var(--st-number-picker-selected-background-color, #3277b3);
+            }
+        }
+
+        
+    }
+}
+.st-form-field .st-number-picker {
+    margin-top: 6px;
+}

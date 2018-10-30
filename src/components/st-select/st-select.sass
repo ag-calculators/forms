@@ -1,0 +1,18 @@
+st-select {
+    /* Component styles go here */
+    select {
+
+        margin: var(--st-input-margin, 6px 0 0);
+
+        &.st-has-errors {
+            border-color: var(--st-has-errors-color, #bf0e08)!important;
+        }
+    }
+}
+
+st-select + st-select,
+st-select + st-text-input {
+    .st-form-field {
+        margin-top: var(--st-form-field-margin-top, 20px);
+    }
+}

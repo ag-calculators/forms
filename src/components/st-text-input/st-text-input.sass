@@ -1,0 +1,16 @@
+st-text-input {    
+    input[type="text"] {
+         margin: var(--st-input-margin, 6px 0 0);
+
+        &.st-has-errors {
+            border-color: var(--st-has-errors-color, #bf0e08)!important;
+        }
+    }
+}
+
+st-text-input + st-text-input,
+st-text-input + st-select {
+    .st-form-field {
+        margin-top: var(--st-form-field-margin-top, 20px);
+    }
+}

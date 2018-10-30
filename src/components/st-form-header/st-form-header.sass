@@ -1,0 +1,29 @@
+st-form-header {
+    /* Component styles go here */
+        
+    header.st-form-header {
+        text-align: center;   
+        color: var(--st-form-header-color, #425a70);     
+        background-color: var(--st-form-header-background-color, #F6F7F8);
+        border: var(--st-form-header-border, 1px solid #D6D9DC);
+        border-radius: var(--st-form-header-border-radius, 3px);
+        
+        width: var(--st-form-header-width, 100%);
+        margin: var(--st-form-header-margin, 20px auto);
+
+        h1 {
+            font-family: 'Roboto', sans-serif;
+            font-size: var(--st-form-header-title-font-size, 30px);
+            margin: var(--st-form-header-title-margin, 20px 0);
+        }
+    }
+}
+
+@media only screen and (min-width: 700px) {
+    st-form-header {
+
+        header.st-form-header {
+            width: var(--st-form-header-width-desktop, 560px);
+        }
+    }
+}
