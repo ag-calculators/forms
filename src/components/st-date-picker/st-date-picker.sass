@@ -1,0 +1,34 @@
+st-date-picker {
+    
+    --st-modal-dialog-background-color: rgba(255, 255, 255, 1);
+
+    .st-number-slider {
+        margin-bottom: var(--st-date-picker-slider-margin-bottom, 10px);
+
+        &:after {
+            display: block;
+            margin-top: var(--st-date-picker-slider-margin-bottom, 10px);
+            content: '';
+            width: 100%;
+            height: var(--st-date-picker-border-size, 2px);
+            background-color: var(--st-date-picker-border-color, #dcdcdc);
+        }
+    }
+    st-number-slider:last-child {
+        .st-number-slider {
+            margin-bottom: 0;
+            
+            &:after {
+                display: none;
+            }
+        }
+    }
+    
+    .st-date-picker {
+        &.st-border {
+            border: var(--st-date-picker-border, 2px solid #dcdcdc);
+            padding: var(--st-date-picker-padding, 10px 10px);
+            border-radius: var(--st-date-picker-border-radius, 4px);
+        }    
+    }
+}

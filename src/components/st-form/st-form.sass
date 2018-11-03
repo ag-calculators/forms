@@ -1,4 +1,4 @@
-st-form {
+    st-form {
 
     font-size: var(--st-form-font-size, 16px);
     line-height: var(--st-form-line-height, 1.3);
@@ -123,84 +123,6 @@ st-form {
             flex: none;
             margin: var(--st-form-radio-margin, 2px 8px 0 0);
         }
-    }
-
-    /* Actions */
-    .st-form-action-row {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-
-        background-color: var(--st-form-action-row-background, #5995da);
-        color: var(--st-form-action-row-color, #ffffff);
-        border: var(--st-form-action-row-border, 1px solid #5995da);
-        border-bottom-left-radius: var(--st-form-border-radius, 3px);
-        border-bottom-right-radius: var(--st-form-border-radius, 3px);
-        height: 40px;
-
-        .st-form-action {
-            display: inline-block;
-            position: relative;
-
-            height: 40px;
-            border: none;
-            background-color: transparent;
-            color: var(--st-form-action-color, #ffffff);
-            cursor: pointer;
-            text-align: center;
-            padding: 0 20px;
-
-            &.st-responsive {
-                > span {
-                    display: none;
-                }
-            }
-
-            &.st-disabled {
-                cursor: text;
-                text-indent: -2000px;
-            }
-            &.flex {
-                flex: 1;
-            }
-
-            &.left {
-                width: var(--st-form-action-width, 30px);
-            }
-            &.right {
-                width: var(--st-form-action-width, 30px)    
-            }
-            &.st-active {
-                background-color: var(--st-form-action-active-background-color, #3277b3);    
-            }
-        }
-    }
-
-    /* Inline Action */
-    button.st-form-inline-action {
-        font-size: var(--st-form-button-font-size, 16px);
-        font-weight: var(--st-form-button-font-weight, bold);
-    
-        color: var(--st-form-button-color, #FFFFFF);
-        background-color: var(--st-form-button-background-color, #5995DA);
-    
-        border: var(--st-form-button-border, none);
-        border-radius: var(--st-form-button-border-radius, 3px);
-    
-        padding: var(--st-form-button-padding-y, 10px) var(--st-form-button-padding-x, 40px);
-        cursor: pointer;
-    }
-    button.st-form-inline-action:hover {
-        background-color: var(--st-form-button-hover-background, #76AEED);
-    }
-    
-    button.st-form-inline-action:active {
-        background-color: var(--st-form-button-active-background, #407FC7);
     }
 
     .st-muted-text {

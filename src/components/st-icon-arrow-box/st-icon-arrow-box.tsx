@@ -13,7 +13,7 @@ export class StIconArrowBox {
     @Prop() iconBackgroundColor: string
     @Prop() boxBorderColor: string
     @Prop() inline: boolean
-    @Prop() direction: 'left' | 'LEFT' | 'right' | 'RIGHT' = 'left'
+    @Prop() direction: 'left' | 'right' = 'left'
     @Prop() greyscale: boolean
     
     private isRight () {

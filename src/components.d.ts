@@ -9,7 +9,6 @@ import '@stencil/core';
 
 
 import {
-  FormRouterInterface,
   FormStateInterface,
 } from './common/interfaces';
 
@@ -17,11 +16,11 @@ import {
 export namespace Components {
 
   interface StArrowBox {
-    'direction': 'left' | 'LEFT' | 'right' | 'RIGHT';
+    'direction': 'left' | 'right';
     'inline': boolean;
   }
   interface StArrowBoxAttributes extends StencilHTMLAttributes {
-    'direction'?: 'left' | 'LEFT' | 'right' | 'RIGHT';
+    'direction'?: 'left' | 'right';
     'inline'?: boolean;
   }
 
@@ -65,13 +64,59 @@ export namespace Components {
     'value'?: string;
   }
 
+  interface StDatePickerField {
+    'defaultDate': Date;
+    'description': string;
+    'hint': string;
+    'label': string;
+    'name': string;
+    'required': boolean;
+  }
+  interface StDatePickerFieldAttributes extends StencilHTMLAttributes {
+    'defaultDate'?: Date;
+    'description'?: string;
+    'hint'?: string;
+    'label'?: string;
+    'name'?: string;
+    'required'?: boolean;
+  }
+
+  interface StDatePicker {
+    'bind': (formData: any) => Promise<any>;
+    'bordered': boolean;
+    'defaultDate': Date;
+    'name': string;
+    'onValidate': (valid, msg) => void;
+    'required': boolean;
+    'reset': () => Promise<void>;
+    'setDate': (newDate: Date) => void;
+    'setValue': (value: any) => Promise<void>;
+    'validate': () => Promise<boolean>;
+  }
+  interface StDatePickerAttributes extends StencilHTMLAttributes {
+    'bordered'?: boolean;
+    'defaultDate'?: Date;
+    'name'?: string;
+    'onValidate'?: (valid, msg) => void;
+    'required'?: boolean;
+  }
+
+  interface StDrilldownItemControl {}
+  interface StDrilldownItemControlAttributes extends StencilHTMLAttributes {}
+
   interface StDrilldownItem {
+    'icon': string;
     'path': string;
+    'smallText': boolean;
     'text': string;
+    'value': any;
   }
   interface StDrilldownItemAttributes extends StencilHTMLAttributes {
+    'icon'?: string;
     'path'?: string;
+    'smallText'?: boolean;
     'text'?: string;
+    'value'?: any;
   }
 
   interface StDrilldown {
@@ -79,8 +124,10 @@ export namespace Components {
     'description': string;
     'hint': string;
     'id': string;
+    'itemSelected': (str) => void;
     'label': string;
     'name': string;
+    'path': string;
     'required': boolean;
     'reset': () => Promise<void>;
     'setValue': (value: any) => Promise<void>;
@@ -90,8 +137,10 @@ export namespace Components {
     'description'?: string;
     'hint'?: string;
     'id'?: string;
+    'itemSelected'?: (str) => void;
     'label'?: string;
     'name'?: string;
+    'path'?: string;
     'required'?: boolean;
   }
 
@@ -184,24 +233,11 @@ export namespace Components {
   interface StFormOptionsRow {}
   interface StFormOptionsRowAttributes extends StencilHTMLAttributes {}
 
-  interface StFormPage2 {
-    'formState': FormStateInterface;
-    'router': FormRouterInterface;
-    'secret': string;
+  interface StFormPadding {
+    'pad': string;
   }
-  interface StFormPage2Attributes extends StencilHTMLAttributes {
-    'formState'?: FormStateInterface;
-    'router'?: FormRouterInterface;
-    'secret'?: string;
-  }
-
-  interface StFormPage {
-    'formState': FormStateInterface;
-    'router': FormRouterInterface;
-  }
-  interface StFormPageAttributes extends StencilHTMLAttributes {
-    'formState'?: FormStateInterface;
-    'router'?: FormRouterInterface;
+  interface StFormPaddingAttributes extends StencilHTMLAttributes {
+    'pad'?: string;
   }
 
   interface StFormRoute {
@@ -252,9 +288,20 @@ export namespace Components {
     'onStFormSubmitted'?: (event: CustomEvent) => void;
   }
 
+  interface StGridSelect {
+    'bordered': boolean;
+    'items': Array<HTMLElement>;
+    'maxColumns': number;
+  }
+  interface StGridSelectAttributes extends StencilHTMLAttributes {
+    'bordered'?: boolean;
+    'items'?: Array<HTMLElement>;
+    'maxColumns'?: number;
+  }
+
   interface StIconArrowBox {
     'boxBorderColor': string;
-    'direction': 'left' | 'LEFT' | 'right' | 'RIGHT';
+    'direction': 'left' | 'right';
     'greyscale': boolean;
     'icon': string;
     'iconBackgroundColor': string;
@@ -265,7 +312,7 @@ export namespace Components {
   }
   interface StIconArrowBoxAttributes extends StencilHTMLAttributes {
     'boxBorderColor'?: string;
-    'direction'?: 'left' | 'LEFT' | 'right' | 'RIGHT';
+    'direction'?: 'left' | 'right';
     'greyscale'?: boolean;
     'icon'?: string;
     'iconBackgroundColor'?: string;
@@ -282,27 +329,57 @@ export namespace Components {
     'icon'?: string;
   }
 
+  interface StModalDialog {
+    'close': () => void;
+    'isOpen': boolean;
+    'show': () => void;
+  }
+  interface StModalDialogAttributes extends StencilHTMLAttributes {
+    'isOpen'?: boolean;
+  }
+
+  interface StMonthPicker {
+    'label': string;
+    'name': string;
+    'required': boolean;
+  }
+  interface StMonthPickerAttributes extends StencilHTMLAttributes {
+    'label'?: string;
+    'name'?: string;
+    'required'?: boolean;
+  }
+
   interface StNumberInput {
     'bind': (formData: any) => Promise<any>;
     'defaultValue': number;
     'description': string;
+    'focused': boolean;
     'hint': string;
     'label': string;
+    'max': number;
+    'min': number;
     'name': string;
     'pattern': string;
+    'placeholder': string;
     'required': boolean;
     'reset': () => Promise<void>;
     'setValue': (value: any) => Promise<void>;
+    'step': number;
     'validate': () => Promise<boolean>;
   }
   interface StNumberInputAttributes extends StencilHTMLAttributes {
     'defaultValue'?: number;
     'description'?: string;
+    'focused'?: boolean;
     'hint'?: string;
     'label'?: string;
+    'max'?: number;
+    'min'?: number;
     'name'?: string;
     'pattern'?: string;
+    'placeholder'?: string;
     'required'?: boolean;
+    'step'?: number;
   }
 
   interface StNumberPicker {
@@ -329,6 +406,79 @@ export namespace Components {
     'name'?: string;
     'numbers'?: any;
     'required'?: boolean;
+    'step'?: number;
+  }
+
+  interface StNumberSlider {
+    'bind': (formData: any) => Promise<any>;
+    'bordered': boolean;
+    'defaultValue': number;
+    'items': string;
+    'labels': Array<string>;
+    'max': number;
+    'min': number;
+    'name': string;
+    'renderLeftAction': (items) => void;
+    'reset': () => Promise<void>;
+    'selectIndex': (idx: number) => Promise<void>;
+    'selectedValue': () => number;
+    'setValue': (value: any) => Promise<void>;
+    'validate': () => Promise<boolean>;
+    'valueChanged': (val) => void;
+    'visibleItems': number;
+  }
+  interface StNumberSliderAttributes extends StencilHTMLAttributes {
+    'bordered'?: boolean;
+    'defaultValue'?: number;
+    'items'?: string;
+    'labels'?: Array<string>;
+    'max'?: number;
+    'min'?: number;
+    'name'?: string;
+    'renderLeftAction'?: (items) => void;
+    'valueChanged'?: (val) => void;
+    'visibleItems'?: number;
+  }
+
+  interface StNumberStepperField {
+    'defaultValue': number;
+    'description': string;
+    'hint': string;
+    'label': string;
+    'max': number;
+    'min': number;
+    'name': string;
+    'step': number;
+  }
+  interface StNumberStepperFieldAttributes extends StencilHTMLAttributes {
+    'defaultValue'?: number;
+    'description'?: string;
+    'hint'?: string;
+    'label'?: string;
+    'max'?: number;
+    'min'?: number;
+    'name'?: string;
+    'step'?: number;
+  }
+
+  interface StNumberStepper {
+    'bind': (formData: any) => Promise<any>;
+    'bordered': boolean;
+    'defaultValue': number;
+    'max': number;
+    'min': number;
+    'name': string;
+    'reset': () => Promise<void>;
+    'setValue': (value: any) => Promise<void>;
+    'step': number;
+    'validate': () => Promise<boolean>;
+  }
+  interface StNumberStepperAttributes extends StencilHTMLAttributes {
+    'bordered'?: boolean;
+    'defaultValue'?: number;
+    'max'?: number;
+    'min'?: number;
+    'name'?: string;
     'step'?: number;
   }
 
@@ -469,6 +619,7 @@ export namespace Components {
     'name': string;
     'onInputChange': (val) => void;
     'pattern': string;
+    'placeholder': string;
     'required': boolean;
     'reset': (detail: any) => Promise<void>;
     'setValue': (value: any) => Promise<void>;
@@ -483,6 +634,7 @@ export namespace Components {
     'name'?: string;
     'onInputChange'?: (val) => void;
     'pattern'?: string;
+    'placeholder'?: string;
     'required'?: boolean;
   }
 
@@ -513,6 +665,9 @@ declare global {
     'StArrowBox': Components.StArrowBox;
     'StCheckboxField': Components.StCheckboxField;
     'StCheckbox': Components.StCheckbox;
+    'StDatePickerField': Components.StDatePickerField;
+    'StDatePicker': Components.StDatePicker;
+    'StDrilldownItemControl': Components.StDrilldownItemControl;
     'StDrilldownItem': Components.StDrilldownItem;
     'StDrilldown': Components.StDrilldown;
     'StEditableContent': Components.StEditableContent;
@@ -525,16 +680,21 @@ declare global {
     'StFormField': Components.StFormField;
     'StFormHeader': Components.StFormHeader;
     'StFormOptionsRow': Components.StFormOptionsRow;
-    'StFormPage2': Components.StFormPage2;
-    'StFormPage': Components.StFormPage;
+    'StFormPadding': Components.StFormPadding;
     'StFormRoute': Components.StFormRoute;
     'StFormRouter': Components.StFormRouter;
     'StFormRow': Components.StFormRow;
     'StForm': Components.StForm;
+    'StGridSelect': Components.StGridSelect;
     'StIconArrowBox': Components.StIconArrowBox;
     'StInputAppend': Components.StInputAppend;
+    'StModalDialog': Components.StModalDialog;
+    'StMonthPicker': Components.StMonthPicker;
     'StNumberInput': Components.StNumberInput;
     'StNumberPicker': Components.StNumberPicker;
+    'StNumberSlider': Components.StNumberSlider;
+    'StNumberStepperField': Components.StNumberStepperField;
+    'StNumberStepper': Components.StNumberStepper;
     'StRadioButtonGroup': Components.StRadioButtonGroup;
     'StRadioButton': Components.StRadioButton;
     'StRadioGroup': Components.StRadioGroup;
@@ -550,6 +710,9 @@ declare global {
     'st-arrow-box': Components.StArrowBoxAttributes;
     'st-checkbox-field': Components.StCheckboxFieldAttributes;
     'st-checkbox': Components.StCheckboxAttributes;
+    'st-date-picker-field': Components.StDatePickerFieldAttributes;
+    'st-date-picker': Components.StDatePickerAttributes;
+    'st-drilldown-item-control': Components.StDrilldownItemControlAttributes;
     'st-drilldown-item': Components.StDrilldownItemAttributes;
     'st-drilldown': Components.StDrilldownAttributes;
     'st-editable-content': Components.StEditableContentAttributes;
@@ -562,16 +725,21 @@ declare global {
     'st-form-field': Components.StFormFieldAttributes;
     'st-form-header': Components.StFormHeaderAttributes;
     'st-form-options-row': Components.StFormOptionsRowAttributes;
-    'st-form-page-2': Components.StFormPage2Attributes;
-    'st-form-page': Components.StFormPageAttributes;
+    'st-form-padding': Components.StFormPaddingAttributes;
     'st-form-route': Components.StFormRouteAttributes;
     'st-form-router': Components.StFormRouterAttributes;
     'st-form-row': Components.StFormRowAttributes;
     'st-form': Components.StFormAttributes;
+    'st-grid-select': Components.StGridSelectAttributes;
     'st-icon-arrow-box': Components.StIconArrowBoxAttributes;
     'st-input-append': Components.StInputAppendAttributes;
+    'st-modal-dialog': Components.StModalDialogAttributes;
+    'st-month-picker': Components.StMonthPickerAttributes;
     'st-number-input': Components.StNumberInputAttributes;
     'st-number-picker': Components.StNumberPickerAttributes;
+    'st-number-slider': Components.StNumberSliderAttributes;
+    'st-number-stepper-field': Components.StNumberStepperFieldAttributes;
+    'st-number-stepper': Components.StNumberStepperAttributes;
     'st-radio-button-group': Components.StRadioButtonGroupAttributes;
     'st-radio-button': Components.StRadioButtonAttributes;
     'st-radio-group': Components.StRadioGroupAttributes;
@@ -600,6 +768,24 @@ declare global {
   var HTMLStCheckboxElement: {
     prototype: HTMLStCheckboxElement;
     new (): HTMLStCheckboxElement;
+  };
+
+  interface HTMLStDatePickerFieldElement extends Components.StDatePickerField, HTMLStencilElement {}
+  var HTMLStDatePickerFieldElement: {
+    prototype: HTMLStDatePickerFieldElement;
+    new (): HTMLStDatePickerFieldElement;
+  };
+
+  interface HTMLStDatePickerElement extends Components.StDatePicker, HTMLStencilElement {}
+  var HTMLStDatePickerElement: {
+    prototype: HTMLStDatePickerElement;
+    new (): HTMLStDatePickerElement;
+  };
+
+  interface HTMLStDrilldownItemControlElement extends Components.StDrilldownItemControl, HTMLStencilElement {}
+  var HTMLStDrilldownItemControlElement: {
+    prototype: HTMLStDrilldownItemControlElement;
+    new (): HTMLStDrilldownItemControlElement;
   };
 
   interface HTMLStDrilldownItemElement extends Components.StDrilldownItem, HTMLStencilElement {}
@@ -674,16 +860,10 @@ declare global {
     new (): HTMLStFormOptionsRowElement;
   };
 
-  interface HTMLStFormPage2Element extends Components.StFormPage2, HTMLStencilElement {}
-  var HTMLStFormPage2Element: {
-    prototype: HTMLStFormPage2Element;
-    new (): HTMLStFormPage2Element;
-  };
-
-  interface HTMLStFormPageElement extends Components.StFormPage, HTMLStencilElement {}
-  var HTMLStFormPageElement: {
-    prototype: HTMLStFormPageElement;
-    new (): HTMLStFormPageElement;
+  interface HTMLStFormPaddingElement extends Components.StFormPadding, HTMLStencilElement {}
+  var HTMLStFormPaddingElement: {
+    prototype: HTMLStFormPaddingElement;
+    new (): HTMLStFormPaddingElement;
   };
 
   interface HTMLStFormRouteElement extends Components.StFormRoute, HTMLStencilElement {}
@@ -710,6 +890,12 @@ declare global {
     new (): HTMLStFormElement;
   };
 
+  interface HTMLStGridSelectElement extends Components.StGridSelect, HTMLStencilElement {}
+  var HTMLStGridSelectElement: {
+    prototype: HTMLStGridSelectElement;
+    new (): HTMLStGridSelectElement;
+  };
+
   interface HTMLStIconArrowBoxElement extends Components.StIconArrowBox, HTMLStencilElement {}
   var HTMLStIconArrowBoxElement: {
     prototype: HTMLStIconArrowBoxElement;
@@ -722,6 +908,18 @@ declare global {
     new (): HTMLStInputAppendElement;
   };
 
+  interface HTMLStModalDialogElement extends Components.StModalDialog, HTMLStencilElement {}
+  var HTMLStModalDialogElement: {
+    prototype: HTMLStModalDialogElement;
+    new (): HTMLStModalDialogElement;
+  };
+
+  interface HTMLStMonthPickerElement extends Components.StMonthPicker, HTMLStencilElement {}
+  var HTMLStMonthPickerElement: {
+    prototype: HTMLStMonthPickerElement;
+    new (): HTMLStMonthPickerElement;
+  };
+
   interface HTMLStNumberInputElement extends Components.StNumberInput, HTMLStencilElement {}
   var HTMLStNumberInputElement: {
     prototype: HTMLStNumberInputElement;
@@ -732,6 +930,24 @@ declare global {
   var HTMLStNumberPickerElement: {
     prototype: HTMLStNumberPickerElement;
     new (): HTMLStNumberPickerElement;
+  };
+
+  interface HTMLStNumberSliderElement extends Components.StNumberSlider, HTMLStencilElement {}
+  var HTMLStNumberSliderElement: {
+    prototype: HTMLStNumberSliderElement;
+    new (): HTMLStNumberSliderElement;
+  };
+
+  interface HTMLStNumberStepperFieldElement extends Components.StNumberStepperField, HTMLStencilElement {}
+  var HTMLStNumberStepperFieldElement: {
+    prototype: HTMLStNumberStepperFieldElement;
+    new (): HTMLStNumberStepperFieldElement;
+  };
+
+  interface HTMLStNumberStepperElement extends Components.StNumberStepper, HTMLStencilElement {}
+  var HTMLStNumberStepperElement: {
+    prototype: HTMLStNumberStepperElement;
+    new (): HTMLStNumberStepperElement;
   };
 
   interface HTMLStRadioButtonGroupElement extends Components.StRadioButtonGroup, HTMLStencilElement {}
@@ -792,6 +1008,9 @@ declare global {
     'st-arrow-box': HTMLStArrowBoxElement
     'st-checkbox-field': HTMLStCheckboxFieldElement
     'st-checkbox': HTMLStCheckboxElement
+    'st-date-picker-field': HTMLStDatePickerFieldElement
+    'st-date-picker': HTMLStDatePickerElement
+    'st-drilldown-item-control': HTMLStDrilldownItemControlElement
     'st-drilldown-item': HTMLStDrilldownItemElement
     'st-drilldown': HTMLStDrilldownElement
     'st-editable-content': HTMLStEditableContentElement
@@ -804,16 +1023,21 @@ declare global {
     'st-form-field': HTMLStFormFieldElement
     'st-form-header': HTMLStFormHeaderElement
     'st-form-options-row': HTMLStFormOptionsRowElement
-    'st-form-page-2': HTMLStFormPage2Element
-    'st-form-page': HTMLStFormPageElement
+    'st-form-padding': HTMLStFormPaddingElement
     'st-form-route': HTMLStFormRouteElement
     'st-form-router': HTMLStFormRouterElement
     'st-form-row': HTMLStFormRowElement
     'st-form': HTMLStFormElement
+    'st-grid-select': HTMLStGridSelectElement
     'st-icon-arrow-box': HTMLStIconArrowBoxElement
     'st-input-append': HTMLStInputAppendElement
+    'st-modal-dialog': HTMLStModalDialogElement
+    'st-month-picker': HTMLStMonthPickerElement
     'st-number-input': HTMLStNumberInputElement
     'st-number-picker': HTMLStNumberPickerElement
+    'st-number-slider': HTMLStNumberSliderElement
+    'st-number-stepper-field': HTMLStNumberStepperFieldElement
+    'st-number-stepper': HTMLStNumberStepperElement
     'st-radio-button-group': HTMLStRadioButtonGroupElement
     'st-radio-button': HTMLStRadioButtonElement
     'st-radio-group': HTMLStRadioGroupElement
@@ -829,6 +1053,9 @@ declare global {
     'st-arrow-box': HTMLStArrowBoxElement;
     'st-checkbox-field': HTMLStCheckboxFieldElement;
     'st-checkbox': HTMLStCheckboxElement;
+    'st-date-picker-field': HTMLStDatePickerFieldElement;
+    'st-date-picker': HTMLStDatePickerElement;
+    'st-drilldown-item-control': HTMLStDrilldownItemControlElement;
     'st-drilldown-item': HTMLStDrilldownItemElement;
     'st-drilldown': HTMLStDrilldownElement;
     'st-editable-content': HTMLStEditableContentElement;
@@ -841,16 +1068,21 @@ declare global {
     'st-form-field': HTMLStFormFieldElement;
     'st-form-header': HTMLStFormHeaderElement;
     'st-form-options-row': HTMLStFormOptionsRowElement;
-    'st-form-page-2': HTMLStFormPage2Element;
-    'st-form-page': HTMLStFormPageElement;
+    'st-form-padding': HTMLStFormPaddingElement;
     'st-form-route': HTMLStFormRouteElement;
     'st-form-router': HTMLStFormRouterElement;
     'st-form-row': HTMLStFormRowElement;
     'st-form': HTMLStFormElement;
+    'st-grid-select': HTMLStGridSelectElement;
     'st-icon-arrow-box': HTMLStIconArrowBoxElement;
     'st-input-append': HTMLStInputAppendElement;
+    'st-modal-dialog': HTMLStModalDialogElement;
+    'st-month-picker': HTMLStMonthPickerElement;
     'st-number-input': HTMLStNumberInputElement;
     'st-number-picker': HTMLStNumberPickerElement;
+    'st-number-slider': HTMLStNumberSliderElement;
+    'st-number-stepper-field': HTMLStNumberStepperFieldElement;
+    'st-number-stepper': HTMLStNumberStepperElement;
     'st-radio-button-group': HTMLStRadioButtonGroupElement;
     'st-radio-button': HTMLStRadioButtonElement;
     'st-radio-group': HTMLStRadioGroupElement;

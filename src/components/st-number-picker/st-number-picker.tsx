@@ -49,7 +49,6 @@ export class StNumberPicker implements FormInputInterface {
 
     async handleClose(e:UIEvent) {
         e.preventDefault();
-        console.log('inner numbers', this.innerNumbers);
         this.buttonEl = null;
         await this.reset();
     }

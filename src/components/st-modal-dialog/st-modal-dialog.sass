@@ -1,0 +1,43 @@
+body.st-modal-open {
+    overflow: hidden;
+}
+
+st-modal-dialog {
+
+    .st-modal-dialog {
+        z-index: 99;
+        display: none;
+        height: 100%;
+        left: 0;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background-color: var(--st-modal-dialog-background-color, rgba(255, 255, 255, .4));
+
+        &.st-open {
+            display: block;
+        }
+
+        .st-modal-dialog__header,
+        .st-modal-dialog__footer {
+            text-align: var(--st-modal-dialog-header-text-align, center);            
+            background-color: var(--st-modal-dialog-header-background-color, #dcdcdc);
+        }
+        .st-modal-dialog__content,
+        .st-modal-dialog__footer {
+            position: absolute;
+            width: 100%;
+        }
+        .st-modal-dialog__content {
+            bottom: var(--st-modal-dialog-footer-height, 30px);
+            top: var(--st-modal-dialog-header-height, 30px);
+            overflow-y: auto;
+        }
+        .st-modal-dialog__footer {
+            bottom: 0;
+        }
+
+    }
+
+
+}

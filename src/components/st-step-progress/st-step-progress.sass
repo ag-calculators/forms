@@ -30,6 +30,10 @@ st-step-progress {
 
     /* Note */
     .st-step-progress-arrow-box {
+        position: relative;
+        background: var(--st-step-progress-arrow-box-background-color, #F6F7F8);
+        border: var(--st-step-progress-arrow-box-border-size, 4px) solid var(--st-step-progress-arrow-box-border-color, #dcdcdc);
+        border-radius: var(--st-step-progress-arrow-box-border-radius, 4px);
         display: inline-block;
         padding: var(--st-step-progress-padding, 4px 8px);
         line-height: var(--st-step-progress-label-height, 30px);
@@ -40,10 +44,9 @@ st-step-progress {
         font-size: 14px;
         -webkit-font-smoothing:antialiased;
         position: relative;
-        background: var(--st-step-progress-label-background, #5995da);
-        border-radius: 3px;
     }
-    .st-step-progress-arrow-box:after {
+
+    .st-step-progress-arrow-box:after, .st-step-progress-arrow-box:before {
         bottom: 100%;
         left: 50%;
         border: solid transparent;
@@ -52,9 +55,47 @@ st-step-progress {
         width: 0;
         position: absolute;
         pointer-events: none;
-        border-color: rgba(255, 255, 255, 0);
-        border-bottom-color: var(--st-step-progress-label-background, #5995da);;
-        border-width: 5px;
-        margin-left: -5px;
     }
+
+    .st-step-progress-arrow-box:after {
+        border-color: rgba(255, 255, 255, 0);
+        border-bottom-color: var(--st-step-progress-arrow-box-background-color, #F6F7F8);
+        border-width: 10px;
+        margin-left: -10px;
+    }
+    .st-step-progress-arrow-box:before {
+        border-color: rgba(194, 225, 245, 0);
+        border-bottom-color: var(--st-step-progress-arrow-box-border-color, #dcdcdc);
+        border-width: 15px;
+        margin-left: -15px;
+    }
+        
+    // .st-step-progress-arrow-box {
+    //     display: inline-block;
+    //     padding: var(--st-step-progress-padding, 4px 8px);
+    //     line-height: var(--st-step-progress-label-height, 30px);
+    //     margin: var(--st-step-progress-margin, 30px auto);
+    //     text-align: center;
+    //     font-family: sans-serif;
+    //     color: var(--st-step-progress-label-color, #fff);
+    //     font-size: 14px;
+    //     -webkit-font-smoothing:antialiased;
+    //     position: relative;
+    //     background: var(--st-step-progress-label-background, #5995da);
+    //     border-radius: 3px;
+    // }
+    // .st-step-progress-arrow-box:after {
+    //     bottom: 100%;
+    //     left: 50%;
+    //     border: solid transparent;
+    //     content: " ";
+    //     height: 0;
+    //     width: 0;
+    //     position: absolute;
+    //     pointer-events: none;
+    //     border-color: rgba(255, 255, 255, 0);
+    //     border-bottom-color: var(--st-step-progress-label-background, #5995da);
+    //     border-width: 5px;
+    //     margin-left: -5px;
+    // }
 }

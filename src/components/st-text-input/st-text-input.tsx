@@ -1,4 +1,4 @@
-import { Component, Prop, State, Method, Watch } from "@stencil/core";
+import { Component, Element, Prop, State, Method, Watch } from "@stencil/core";
 import { FormInputInterface } from '../../common/interfaces';
 
 @Component({
@@ -12,11 +12,13 @@ export class StTextInput implements FormInputInterface {
     @Prop() label: string
     @Prop() description: string
     @Prop() hint: string
+    @Prop() placeholder: string
     @Prop() required: boolean
     @Prop() pattern: string
     @Prop() focused: boolean
     @Prop() onInputChange: (val) => void
     @State() validationMessage: string
+    @Element() el: HTMLElement
 
     inputEl: HTMLInputElement;
 
@@ -26,7 +28,11 @@ export class StTextInput implements FormInputInterface {
          return [
             <st-form-field name={this.name} label={this.label} description={this.description} hint={this.hint} 
                 validationMessage={this.validationMessage}>
-                <input class={classNames} ref={(el) => this.inputEl = el as HTMLInputElement} id={this.name} name={this.name} onChange={this.handleChange.bind(this)} type="text"/>
+                <input class={classNames} 
+                    ref={(el) => this.inputEl = el as HTMLInputElement} 
+                    id={this.name} name={this.name} 
+                    placeholder={this.placeholder}
+                    onChange={this.handleChange.bind(this)} type="text"/>
             </st-form-field>
         ];
     }
@@ -98,7 +104,8 @@ export class StTextInput implements FormInputInterface {
         if (this.defaultValue) {
             this.inputEl.value = this.defaultValue;
         };
-        if (this.focused) {
+
+        if (this.el.attributes['focused']) {
             this.inputEl.focus();
         }
     }

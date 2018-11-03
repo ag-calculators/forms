@@ -1,6 +1,6 @@
 {
   "name": "@ag-calculators/forms",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Custom form components built with stencil",
   "module": "dist/esm/index.js",
   "main": "dist/index.js",

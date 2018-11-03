@@ -23,7 +23,6 @@ export class StFormRouter implements FormRouterInterface, FormStateInterface {
 
         let route = this.routeCache.map(a => a as any).filter(c => {
             let n = (c as StFormRoute);
-            console.log('n', n, n.route);
             return n.route === url
         })[0];
       
@@ -60,9 +59,13 @@ export class StFormRouter implements FormRouterInterface, FormStateInterface {
 
     @Method()
     async route(url, routeFn?: () => HTMLElement): Promise<void> {
-        console.log(url);
+        var currentUrl = this.currentRoute && this.currentRoute.route || this.defaultRoute;
+
         if (url && !routeFn) {
             this.currentRoute = this.matchRoute(url)
+            if (this.currentRoute) {
+                window.history.pushState(currentUrl, null, url);
+            }
         }
     }
 
@@ -88,6 +91,15 @@ export class StFormRouter implements FormRouterInterface, FormStateInterface {
         if (this.defaultRoute) {
             this.currentRoute = this.matchRoute(this.defaultRoute);
         }
+
+        window.addEventListener('popstate', async (e) => {
+            var route = e.state;
+          
+            if (route) {
+              this.route(route);
+            } 
+        });
+
     }
 
     componentDidUnload() {

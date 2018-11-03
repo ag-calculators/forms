@@ -1,0 +1,55 @@
+st-grid-select {  
+
+    --st-form-button-padding-y: 4px;
+    --st-form-button-padding-x: 10px;
+    --st-form-button-color: #999999;
+    --st-form-button-background-color: #dcdcdc;
+    --st-form-button-hover-background: #dcdcdc;
+    --st-form-button-active-background: #c2c2c2;
+
+    box-sizing: border-box;
+    * {
+        box-sizing: border-box;
+    }  
+    .st-grid-select {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        &.st-border {
+            border: var(--st-grid-select-border, 2px solid #dcdcdc);
+            padding: var(--st-grid-select-padding, 10px 10px);
+            border-radius: var(--st-grid-select-border-radius, 4px);
+        }
+
+        > .st-grid-select-item {
+            flex: 1 1 var(--st-grid-select-item-width, 25%);
+            padding: var(--st-grid-select-item-padding, 10px);
+
+            > * {
+                display: inline-block;
+                width: 100%;
+            }
+
+            &.st-active, &.st-active:hover {
+                color: var(--st-grid-select-selected-color, #fff);
+                background-color: var(--st-grid-select-selected-background-color, #3277b3);
+            }
+        }
+        
+        
+    }
+}
+
+@media (max-width: var(--st-grid-select-mobile-breakpoint, 400px)) {
+    st-grid-select {
+        .st-grid-select {
+
+            --st-grid-select-item-width: 100%;
+
+            > .st-grid-select-item {
+                flex: 1;
+            }
+        }
+    }
+}

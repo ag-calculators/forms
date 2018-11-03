@@ -1,0 +1,36 @@
+st-number-slider {
+
+    --st-form-button-padding-y: 4px;
+    --st-form-button-padding-x: 10px;
+    --st-form-button-color: #999999;
+    --st-form-button-background-color: #dcdcdc;
+    --st-form-button-hover-background: #dcdcdc;
+    --st-form-button-active-background: #c2c2c2;
+
+    .st-number-slider {
+        display: flex;
+        justify-content: space-between;
+        align-content: stretch;
+        flex-wrap: wrap;
+
+        &.st-border {
+            border: var(--st-number-slider-border, 2px solid #dcdcdc);
+            padding: var(--st-number-slider-padding, 10px 10px);
+            border-radius: var(--st-number-slider-border-radius, 4px);
+        }
+
+        &.st-errors {
+            border-color: var(--st-number-slider-error-border-color, #bf0e08);
+        }
+
+        button {
+            flex: var (--st-number-slider-button, flex, 0 0 33.3333%);
+            text-align: center;
+
+            &.st-active, &.st-active:hover {
+                color: var(--st-number-slider-selected-color, #fff);
+                background-color: var(--st-number-slider-selected-background-color, #3277b3);
+            }
+        }
+    }
+}

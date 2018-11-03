@@ -7,7 +7,7 @@ import { Component, Prop } from '@stencil/core';
 })
 export class StArrowBox {
     @Prop() inline: boolean
-    @Prop() direction: 'left' | 'LEFT' | 'right' | 'RIGHT' = 'left'
+    @Prop() direction: 'left' | 'right' = 'left'
 
     render() {
         let style = {
@@ -15,7 +15,7 @@ export class StArrowBox {
         };
         
         return (
-            <div class={`st-arrow-box${this.direction.toLowerCase() === 'right' ? ' st-arrow-box-right' : ''}`} style={style}>
+            <div class={`st-arrow-box st-arrow-box-${this.direction}`} style={style}>
                 <slot></slot>
             </div>
         );

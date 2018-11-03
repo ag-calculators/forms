@@ -8,6 +8,7 @@ st-arrow-box {
             padding: var(--st-arrow-box-padding, 10px);
             margin: var(--st-arrow-box-margin, 0 0 10px 0);
             border-radius: var(--st-arrow-box-border-radius, 4px);
+            text-align: var(--st-arrow-box-text-align,  left);
         }
 
         .st-arrow-box:after, .st-arrow-box:before {
@@ -23,7 +24,7 @@ st-arrow-box {
 
         .st-arrow-box:after {
             border-color: rgba(255, 255, 255, 0);
-            border-right-color: #fff;
+            border-right-color: var(--st-arrow-box-background, #fff);
             border-width: 5px;
             margin-top: -5px;
         }
@@ -39,12 +40,14 @@ st-arrow-box {
             &:after {
                 left: 100%;
                 border-right-color: rgba(255, 255, 255, 0);
-                border-left-color: #fff;
+                border-left-color: var(--st-arrow-box-background, #fff);
+                width: 1px;
             }
             &:before {
                 left: 100%;
                 border-right-color: rgba(255, 255, 255, 0);
                 border-left-color: var(--st-arrow-box-border-color, #dcdcdc);
+                width: 1px;
             }
-        }   
+        }
 }

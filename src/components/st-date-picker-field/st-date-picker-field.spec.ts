@@ -1,19 +1,19 @@
 import { TestWindow } from '@stencil/core/testing';
-import { StFormPage } from './st-form-page';
+import { StDatePickerField } from './st-date-picker-field';
 
-describe('st-form-page', () => {
+describe('st-date-picker-field', () => {
   it('should build', () => {
-    expect(new StFormPage()).toBeTruthy();
+    expect(new StDatePickerField()).toBeTruthy();
   });
 
   describe('rendering', () => {
-    let element: HTMLStFormPageElement;
+    let element: HTMLStDatePickerFieldElement;
     let testWindow: TestWindow;
     beforeEach(async () => {
       testWindow = new TestWindow();
       element = await testWindow.load({
-        components: [StFormPage],
-        html: '<st-form-page></st-form-page>'
+        components: [StDatePickerField],
+        html: '<st-date-picker-field></st-date-picker-field>'
       });
     });
 

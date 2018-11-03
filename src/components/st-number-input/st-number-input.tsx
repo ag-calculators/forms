@@ -12,8 +12,13 @@ export class StNumberInput implements FormInputInterface {
     @Prop() label: string
     @Prop() description: string
     @Prop() hint: string
+    @Prop() placeholder: string
     @Prop() required: boolean
     @Prop() pattern: string
+    @Prop() min: number
+    @Prop() max: number
+    @Prop() step: number
+    @Prop() focused: boolean
     @State() validationMessage: string
     @State() icon: string = "?"
 
@@ -29,7 +34,11 @@ export class StNumberInput implements FormInputInterface {
         return [
             <st-form-field name={this.name} label={this.label} description={this.description} hint={this.hint} 
                 validationMessage={this.validationMessage}>
-                <input class={classNames} ref={(el) => this.inputEl = el as HTMLInputElement} id={this.name} name={this.name} onChange={this.handleChange.bind(this)} type="number"/>
+                <input class={classNames} 
+                    ref={(el) => this.inputEl = el as HTMLInputElement} 
+                    id={this.name} name={this.name}
+                    placeholder={this.placeholder}
+                    onChange={this.handleChange.bind(this)} type="number"/>
             </st-form-field>
         ];
     }
@@ -84,6 +93,15 @@ export class StNumberInput implements FormInputInterface {
         if (this.pattern) {
             this.inputEl.setAttribute('pattern', this.pattern);
         }
+        if (this.min) {
+            this.inputEl.setAttribute('min', `${this.min}`);
+        }
+        if (this.max) {
+            this.inputEl.setAttribute('max', `${this.max}`);
+        }
+        if (this.step) {
+            this.inputEl.setAttribute('step', `${this.max}`);
+        }
 
         this.inputEl.addEventListener(
             "invalid",
@@ -96,6 +114,11 @@ export class StNumberInput implements FormInputInterface {
 
         if (this.defaultValue) {
             this.inputEl.value = `${this.defaultValue}`;
+        }
+
+        if (this.focused) {
+            this.inputEl.focus();
+            this.inputEl.select();
         }
     }
 }

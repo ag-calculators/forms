@@ -9,6 +9,9 @@ export class StDrilldownItem {
 
     @Prop() path: string
     @Prop() text: string
+    @Prop() icon: string
+    @Prop() smallText: boolean
+    @Prop() value: any
 
     render() {
         return ''
